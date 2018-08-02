@@ -1,0 +1,62 @@
+@import "bootstrap";
+.navbar{
+	background-color: lightblue;
+	border-radius: 5px;
+}
+
+
+
+.li{
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 130px;
+}
+
+.box {
+	margin-top: 10%;
+	margin-right: 50px;
+	border: 2px solid lightblue;
+	border-radius: 5px;
+	padding: 5% 5%;
+	width: 45%;
+	float: left;
+}
+
+.blinking{
+    -webkit-animation:blink 1s ease-in-out infinite alternate;
+    -moz-animation:blink 1s ease-in-out infinite alternate;
+    animation:blink 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+
+.btn {
+	width: 80%;
+	padding: 50px 30px;
+	font-size: 30pt;
+}
+
+.clear{
+	clear: both;
+}
+
+.footer{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 5px;
+	background-color: gray;
+}
