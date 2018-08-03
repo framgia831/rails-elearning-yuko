@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="box">
+			<center>
+				<h3>SIGN UP</h3>
+			</center>
+				<br>
+
+				<% @user.errors.full_messages.each do |message| %>
+				<div class="alert alert-danger">
+					<%= message %>
+				</div>
+				<% end %>
+
+				<%= form_tag(users_path) do %>
+					<div class="form-group">
+						<p>USER NAME</p>
+						<%= text_field_tag :name, nil, class: 'form-control' %>
+					</div>
+					
+					<div class="form-group">
+						<p>EMAIL</p>
+						<%= text_field_tag :email, nil, class: 'form-control' %>
+					</div>
+					
+					<div class="form-group">
+						<p>PASSWORD</p>
+						<%= password_field_tag :password, nil, class: 'form-control' %>
+						<br><br><br>
+					</div>
+
+					<div>
+						<%= submit_tag "Sign up", class: 'btn btn-primary form-control bo' %>
+						
+					</div>
+				<% end %>
+
+		</div>
+	</div>
+</div>
