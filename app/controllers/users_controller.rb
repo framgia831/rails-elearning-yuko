@@ -17,4 +17,29 @@ class UsersController < ApplicationController
 			render "new"
 	  end
 	end
+
+	def login_form
+
+	end
+
+	def login
+		@user = User.find_by(email: params[:email])
+		if @user && @user.authenticate(params[:password])
+			session[:user_id] = @user.id
+			flash[:notice] = "Login is successfully."
+			redirect_to login_path
+		else
+			@error_message = "User Name or Password is wrong."
+			@email = params[:email]
+			@password = params[:password]
+			render "login_form"
+		end
+	end
+
+	def logout
+		session[:user_id] = nil
+		flash[:notice] = "Logout is successfully"
+		redirect_to root_path
+	end
+
 end

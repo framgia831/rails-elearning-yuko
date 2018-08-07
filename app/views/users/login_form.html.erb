@@ -1,0 +1,32 @@
+
+<div class="container">
+	<div class="box">
+		<h3>LOGIN</h3>
+		<br>
+
+			 	<% if @error_message %>
+			 		<div class="alert alert-danger">
+			 			<%= @error_message %>
+			 		</div>
+			 	<% end %>
+
+				<%= form_tag(login_path) do %>
+					<div class="form-group">
+						<p>USER NAME</p>
+						<%= text_field_tag :email, @email, class: 'form-control' %>
+					</div>
+										
+					<div class="form-group">
+						<p>PASSWORD</p>
+						<%= password_field_tag :password, @password, class: 'form-control' %>
+						<br><br><br>
+					</div>
+
+					<div>
+						<%= submit_tag "LOGIN", class: 'btn btn-primary form-control bo' %>
+						
+					</div>
+				<% end %>
+				
+	</div>
+</div>
