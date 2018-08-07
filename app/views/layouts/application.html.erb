@@ -13,9 +13,29 @@
    <div class="navbar navbar-default">
     <div class="navbar-header">
       <ul>
-       <li class="li"><a href="#">HOME</a></li>
-       <li class="li"><a href="#">ELearning</a></li>
-       <li class="li"><a href="#">INFORMATION</a></li>
+        <% if session[:user_id] %>
+          <li>
+            User ID : <%= session[:user_id] %>
+          </li>
+          <li>
+            HOME
+          </li>
+          <li>
+            Category
+          </li>
+          <li>
+            <%= link_to "Logout", logout_path , {method:"post"} %>
+          </li>
+
+        <% end %>
+        <% else %>
+          <li>
+            <%= link_to "HOME", root_path %>
+          </li>
+          <li>
+            Category
+          </li>
+
       </ul>
     </div>
    </div>
