@@ -1,6 +1,6 @@
 @import "bootstrap";
 .navbar{
-	background-color: lightblue;
+	background-color: #59bfe0;
 }
 
 
@@ -76,7 +76,7 @@
 }
 
 .card-header {
-	background-color: lightblue;
+	background-color: #59bfe0;
 }
 
 .info {
@@ -90,4 +90,24 @@
 
 .userImage {
 	margin-bottom: 15px;
+}
+
+.box {
+	background-color: #eee;
+	margin: 10px 0px;
+}
+
+
+
+.name {
+	margin-right: 30px;
+	margin-left: 20px;
+}
+
+.follow {
+	border: 1px solid #59bfe0;
+	background-color: #59bfe0;
+	border-radius: 2px;
+	color: white;
+
 }

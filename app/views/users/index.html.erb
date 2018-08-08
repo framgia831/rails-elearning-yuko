@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+		<h3>Users</h3>
+		</div>
+	</div>
+		<% @users.each do |user| %>
+		<div class="row">
+			<div class="col-sm-6">
+			<div class="box">
+				<span class="pic"><%= gravatar_for(user) %></span>
+				<b><%= link_to user.name, "users/#{user.id}", class: 'name' %></b>
+				<%= link_to "FOLLOW", "#", class: 'follow pull-right' %>
+			</div>
+			</div>
+		</div>
+		
+		<% end %>
+	</div>
+</div>
