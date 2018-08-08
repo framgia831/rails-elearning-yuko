@@ -1,7 +1,6 @@
 @import "bootstrap";
 .navbar{
 	background-color: lightblue;
-	border-radius: 5px;
 }
 
 
@@ -9,17 +8,14 @@
 .li{
 	display: inline-block;
 	margin-top: 10px;
-	margin-left: 130px;
+	margin-left: 60px;
+	color: white;
 }
 
-.box {
+.col-6 {
 	margin-top: 10%;
-	margin-right: 50px;
-	border: 2px solid lightblue;
-	border-radius: 5px;
 	padding: 5% 5%;
-	width: 45%;
-	float: left;
+	margin-bottom: 10%;
 }
 
 .blinking{
@@ -49,12 +45,17 @@
 		font-size: 30pt;
 }
 
-.clear{
-	clear: both;
-}
 
 .bo{
 	height: 50px;
+}
+
+.logout {
+	color: white;
+}
+
+.logout:hover {
+	color: gray
 }
 
 .footer{
@@ -64,3 +65,29 @@
 	background-color: gray;
 }
 
+.setting {
+	width: 30%;
+	margin-top: 50px;
+	margin-left: 35%;
+}
+
+.card {
+	margin-top: 50px;
+}
+
+.card-header {
+	background-color: lightblue;
+}
+
+.info {
+	color: white;
+}
+
+.card-body {
+	padding-top: 40px;
+	padding-bottom: 50px;
+}
+
+.userImage {
+	margin-bottom: 15px;
+}

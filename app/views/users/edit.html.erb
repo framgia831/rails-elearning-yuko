@@ -1,0 +1,27 @@
+<div class="container">
+		<div class="setting">
+			<center><h3>Setting</h3></center>
+
+			<%= form_tag(user_path,{method:"put"})do %>
+				<div class="form-group">
+					<p>User Name</p>
+					<%= text_field_tag :name, @name, class: 'form-control' %>
+				</div>
+				<div class="form-group">
+					<p>Email Address</p>
+					<%= text_field_tag :email, @email, class: 'form-control' %>
+				</div>
+				<div class="form-group">
+					<p>Password</p>
+					<%= password_field_tag :password, @password, class: 'form-control' %>
+				</div>
+				<div class="form-group">
+					<%= submit_tag "UPDATE", class: 'btn btn-primary form-control' %>
+				</div>
+			<% end %>
+
+
+
+
+		</div>
+</div>

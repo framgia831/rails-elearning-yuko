@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="card" style="width: 20rem;">
+  		<div class="card-header"><center><span class="info">USER INFORMATION</span></center></div>
+  			<div class="card-body">
+  				<center>
+  					<div class="userImage">
+						<%= gravatar_for(@user) %>
+					</div>
+					<div>
+	    				<h4 class="card-text"><%= @user.name %></h4>
+						<p class="card-text"><%= @user.email %></p>	
+						<%= link_to "UPDATE PROFILE", edit_user_path %>
+					</div>
+				</center>
+			</div>
+  		</div>
+	</div>
+</div>
