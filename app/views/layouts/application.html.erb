@@ -20,6 +20,9 @@
             Category
           </li>
           <li class="li">
+            <%= link_to "MEMBERS", users_path, class: 'logout' %>
+          </li>
+          <li class="li">
             <%= link_to current_user.name, user_path(current_user), class: 'logout' %>
           </li>
           <li class="li">
