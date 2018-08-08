@@ -10,35 +10,32 @@
   </head>
 
   <body>
-   <div class="navbar navbar-default">
-    <div class="navbar-header">
-      <ul>
-        <% if session[:user_id] %>
-          <li>
-            User ID : <%= session[:user_id] %>
+    <div class="navbar nav justify-content-end">
+        <% if current_user %> 
+        <ul>
+          <li class="li">
+            <%= link_to "HOME", root_path, class: 'logout' %>
           </li>
-          <li>
-            HOME
-          </li>
-          <li>
+          <li class="li">
             Category
           </li>
-          <li>
-            <%= link_to "Logout", logout_path , {method:"post"} %>
+          <li class="li">
+            <%= link_to current_user.name, user_path(current_user), class: 'logout' %>
           </li>
-
-        <% end %>
+          <li class="li">
+            <%= link_to "Logout", logout_path , method:"post" , class: 'logout' %>
+          </li>
         <% else %>
-          <li>
-            <%= link_to "HOME", root_path %>
+          <li class="li">
+            <%= link_to "HOME", root_path, class: 'logout' %>
           </li>
-          <li>
+          <li class="li">
             Category
           </li>
-
+        <% end %>
       </ul>
     </div>
-   </div>
+
 
    <% if flash[:notice] %>
    <div class="alert alert-success">

@@ -42,4 +42,28 @@ class UsersController < ApplicationController
 		redirect_to root_path
 	end
 
+	def show
+		@user = User.find_by(id: params[:id])
+	end
+
+	def edit
+		@user = User.find_by(id: params[:id])
+	end
+
+	def update
+		@user = User.find_by(id: params[:id])
+		@user.assign_attributes(
+			name: params[:name],
+			email: params[:email],
+			password: params[:password]
+		)
+		if @user.save
+			flash[:notice] = "Updating is successfully"
+			redirect_to edit_user_path
+		else
+			render "edit"
+		end
+
+	end
+
 end
