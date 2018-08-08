@@ -2,14 +2,20 @@
 		<div class="setting">
 			<center><h3>Setting</h3></center>
 
+			<% @user.errors.full_messages.each do |message| %>
+				<div class="alert alert-danger">
+					<%= message %>
+				</div>
+			<% end %>
+
 			<%= form_tag(user_path,{method:"put"})do %>
 				<div class="form-group">
 					<p>User Name</p>
-					<%= text_field_tag :name, @name, class: 'form-control' %>
+					<%= text_field_tag :name, @user.name, class: 'form-control' %>
 				</div>
 				<div class="form-group">
 					<p>Email Address</p>
-					<%= text_field_tag :email, @email, class: 'form-control' %>
+					<%= text_field_tag :email, @user.email, class: 'form-control' %>
 				</div>
 				<div class="form-group">
 					<p>Password</p>
@@ -19,9 +25,5 @@
 					<%= submit_tag "UPDATE", class: 'btn btn-primary form-control' %>
 				</div>
 			<% end %>
-
-
-
-
 		</div>
 </div>

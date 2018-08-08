@@ -44,7 +44,6 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
-		@current_user = User.find_by(id: session[:id])
 	end
 
 	def edit
@@ -53,14 +52,16 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find_by(id: params[:id])
-		@user.name = params[:name]
-		@user.email = params[:email]
-		@user.password = params[:password]
+		@user.assign_attributes(
+			name: params[:name],
+			email: params[:email],
+			password: params[:password]
+		)
 		if @user.save
 			flash[:notice] = "Updating is successfully"
 			redirect_to edit_user_path
 		else
-			render "#"
+			render "edit"
 		end
 
 	end
