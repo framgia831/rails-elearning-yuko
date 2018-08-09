@@ -1,0 +1,25 @@
+<div class="container">
+	<% @categories.each do |category| %>
+	<div class="card">
+  		<div class="card-header">Admin | Categories</div>
+ 			<div class="table-responsive">
+    			<table class="table">
+      			<thead>
+	       			<tr>
+	          			<th>Title</th><th>Description</th><th>Words</th><th>Action</th><th></th>
+	        		</tr>
+      			</thead>
+      			<tbody>
+        			<tr>
+          				<td><%= category.title %></td>
+          				<td><%= category.discription %></td>
+          				<td>0</td>
+          				<td class="a"><%= link_to "EDIT", "#", class: 'edit' %></td>
+          				<td class="a"><%= link_to "REMOVE", "#", class: 'remove' %></td>
+        			</tr>
+      			</tbody>
+    			</table>
+  			</div>
+	</div>
+	<% end %>
+</div>

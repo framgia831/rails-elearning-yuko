@@ -1,13 +1,11 @@
 @import "bootstrap";
 .navbar{
 	background-color: #59bfe0;
+	height: 60px;
 }
 
 
-
 .li{
-	display: inline-block;
-	margin-top: 10px;
 	margin-left: 60px;
 	color: white;
 }
@@ -54,6 +52,7 @@
 
 .bo{
 	height: 50px;
+	margin-top: 50px;
 }
 
 .logout {
@@ -61,14 +60,16 @@
 }
 
 .logout:hover {
-	color: gray
+	color: gray;
+	text-decoration: none;
 }
 
-.footer{
+footer {
+	background-color: lightgray;
+}
+
+.fixed-bottom {
 	padding-top: 10px;
-	padding-bottom: 10px;
-	border-radius: 5px;
-	background-color: gray;
 }
 
 .setting {
@@ -98,22 +99,72 @@
 	margin-bottom: 15px;
 }
 
+
 .box {
 	background-color: #eee;
-	margin: 10px 0px;
+	margin: 15px 0px;
+	width: 50%;
 }
 
-
-
 .name {
-	margin-right: 30px;
-	margin-left: 20px;
+	padding-top: 5%;
+}
+
+.followButton {
+	padding-top: 5%;
 }
 
 .follow {
-	border: 1px solid #59bfe0;
-	background-color: #59bfe0;
-	border-radius: 2px;
-	color: white;
-
+	display: inline-block;
+	padding: 0.3em 1em;
+	text-decoration: none;
+	color: #67c5ff;
+	border: 2px solid #67c5ff;
+	border-radius: 3px;
+	transition: .4s;
 }
+
+.follow:hover {
+	text-decoration: none;
+	background: #67c5ff;
+	color: white;
+}
+
+.list {
+	margin-top: 50px;
+}
+
+.notice {
+	margin-top: 5%;
+	width: 50%;
+}
+
+.edit {
+	padding: 0.3em 1em;
+	text-decoration: none;
+	color: orange;
+	border: 2px solid orange;
+	border-radius: 3px;
+	transition: .4s;
+}
+
+.remove {
+	padding: 0.3em 1em;
+	text-decoration: none;
+	color: lightgray;
+	border: 2px solid lightgray;
+	border-radius: 3px;
+	transition: .4s;
+}
+
+.edit:hover {
+	text-decoration: none;
+	color: orange;
+}
+
+.remove:hover {
+	text-decoration: none;
+	color: lightgray;
+}
+
+

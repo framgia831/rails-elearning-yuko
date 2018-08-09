@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 		if @user && @user.authenticate(params[:password])
 			session[:user_id] = @user.id
 			flash[:notice] = "Login is successfully."
-			redirect_to login_path
+			redirect_to root_path
 		else
 			@error_message = "User Name or Password is wrong."
 			@email = params[:email]
@@ -71,5 +71,7 @@ class UsersController < ApplicationController
 		end
 
 	end
+
+
 
 end

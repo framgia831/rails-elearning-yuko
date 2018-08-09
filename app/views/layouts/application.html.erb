@@ -10,42 +10,83 @@
   </head>
 
   <body>
-    <div class="navbar nav justify-content-end">
-        <% if current_user %> 
-        <ul>
+    <nav class="navbar nav">
+      <div class="container">
+
+        <% if current_user.admin %>
+        <ul class="nav mr-auto">
           <li class="li">
             <%= link_to "HOME", root_path, class: 'logout' %>
           </li>
           <li class="li">
-            Category
+            <%= link_to "CATEGORY", root_path, class: 'logout' %>
+          </li>
+          <li class="li">
+            <%= link_to "ADD ALL DATA", admin_categories_path, class: 'logout' %>
           </li>
           <li class="li">
             <%= link_to "MEMBERS", users_path, class: 'logout' %>
           </li>
+        </ul>
+        <ul class="nav">
           <li class="li">
             <%= link_to current_user.name, user_path(current_user), class: 'logout' %>
           </li>
           <li class="li">
             <%= link_to "Logout", logout_path , method:"post" , class: 'logout' %>
           </li>
-        <% else %>
+        </ul>
+        
+         <% elsif current_user %> 
+        <ul class="nav mr-auto">
           <li class="li">
             <%= link_to "HOME", root_path, class: 'logout' %>
           </li>
           <li class="li">
-            Category
+            <%= link_to "CATEGORY", root_path, class: 'logout' %>
+          </li>
+          <li class="li">
+            <%= link_to "MEMBERS", users_path, class: 'logout' %>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="li">
+            <%= link_to current_user.name, user_path(current_user), class: 'logout' %>
+          </li>
+          <li class="li">
+            <%= link_to "Logout", logout_path , method:"post" , class: 'logout' %>
+          </li>
+        </ul>
+        <% else %>
+        <ul class="nav mr-auto">
+          <li class="li">
+            <%= link_to "HOME", root_path, class: 'logout' %>
+          </li>
+          <li class="li">
+            <%= link_to "CATEGORY", root_path, class: 'logout' %>
           </li>
         <% end %>
-      </ul>
+        </ul>
+    </div>
+    </nav>
+
+  
+    <div class="container">
+      <% if flash[:notice] %>
+       <center><div class="alert alert-success notice">
+        <%= flash[:notice] %>
+      <% end %>
+      </div></center>
     </div>
 
-
-   <% if flash[:notice] %>
-   <div class="alert alert-success">
-      <%= flash[:notice] %>
-   <% end %>
- </div>
-
     <%= yield %>
-  </body>
+
+    <footer class="fixed-bottom">
+        <center><p>©All rights reserved.</p></center>
+    </footer>
+
+</body>
+
+
+
 </html>
