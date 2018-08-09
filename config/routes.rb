@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   post 'logout' => 'users#logout'
   resources :users
 
+  resources :categories
+
+  namespace :admin do
+  	resources :categories
+  end
+
 end

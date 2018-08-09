@@ -1,51 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailsElearningYuko</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <title>RailsElearningYuko</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <div class="navbar nav justify-content-end">
-        <% if current_user %> 
-        <ul>
-          <li class="li">
-            <%= link_to "HOME", root_path, class: 'logout' %>
-          </li>
-          <li class="li">
-            Category
-          </li>
-          <li class="li">
-            <%= link_to "MEMBERS", users_path, class: 'logout' %>
-          </li>
-          <li class="li">
-            <%= link_to current_user.name, user_path(current_user), class: 'logout' %>
-          </li>
-          <li class="li">
-            <%= link_to "Logout", logout_path , method:"post" , class: 'logout' %>
-          </li>
-        <% else %>
-          <li class="li">
-            <%= link_to "HOME", root_path, class: 'logout' %>
-          </li>
-          <li class="li">
-            Category
-          </li>
-        <% end %>
-      </ul>
-    </div>
+    <body>
+        <nav class="navbar nav">
+            <div class="container">
+
+            <ul class="nav mr-auto">
+                <li class="li">
+                    <%= link_to "HOME", root_path, class: 'logout' %>
+                </li>
+
+                <% if current_user %>
+                    <li class="li">
+                        <%= link_to "CATEGORY", root_path, class: 'logout' %>
+                    </li>
+
+                    <li class="li">
+                        <%= link_to "MEMBERS", users_path, class: 'logout' %>
+                    </li>
+
+                    <% if current_user.admin %>
+                        <li class="li">
+                            <%= link_to "ADD ALL DATA", admin_categories_path, class: 'logout' %>
+                        </li>
+                    <% end %>
+
+                    <li class="li">
+                        <%= link_to current_user.name, user_path(current_user), class: 'logout' %>
+                    </li>
+
+                    <li class="li">
+                        <%= link_to "Logout", logout_path , method:"post" , class: 'logout' %>
+                    </li>
+                <% end %>
+            </ul>
+               
+        </div>
+        </nav>
+
+    
+        <div class="container">
+            <% if flash[:notice] %>
+             <center><div class="alert alert-success notice">
+                <%= flash[:notice] %>
+            <% end %>
+            </div></center>
+        </div>
+
+        <%= yield %>
+
+        <footer class="fixed-bottom">
+                <center><p>©All rights reserved.</p></center>
+        </footer>
+
+</body>
 
 
-   <% if flash[:notice] %>
-   <div class="alert alert-success">
-      <%= flash[:notice] %>
-   <% end %>
- </div>
 
-    <%= yield %>
-  </body>
 </html>
