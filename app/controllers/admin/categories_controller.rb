@@ -12,19 +12,18 @@ class Admin::CategoriesController < ApplicationController
 	def create
 		@category = Category.new(
 			title: params[:title],
-			discription: params[:disc]
+			description: params[:description]
 			)
 		if @category.save
 			flash[:notice] = "Creating category is successfully."
-			redirect_to "#"
+			redirect_to admin_categories_path
 		else
-			render "#"
+			render "new"
 		end	
 	end
 
 	private
 		def admin_user
-
 			redirect_to(root_path) unless current_user.admin?
 		end
 end

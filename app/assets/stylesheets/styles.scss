@@ -167,4 +167,19 @@ footer {
 	color: lightgray;
 }
 
+.addCategory {
+	padding: 0.3em 1em;
+	text-decoration: none;
+	color: white;
+	background-color: green;
+	border: 2px solid green;
+	border-radius: 3px;
+	transition: .4s;
+}
+
+.addCategory:hover {
+	text-decoration: none;
+	color: white;
+}
+
 

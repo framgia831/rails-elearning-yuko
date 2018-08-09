@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 			flash[:notice] = "Login is successfully."
 			redirect_to root_path
 		else
-			@error_message = "User Name or Password is wrong."
+			@error_message = "Email or Password is wrong."
 			@email = params[:email]
 			@password = params[:password]
 			render "login_form"

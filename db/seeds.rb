@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.create(:title => 'English', :discription => 'apple')
+Category.create(:title => 'English', :description => 'apple')
 
 User.create!(name: "yuko",
 	email: "yu@gmail.com",
