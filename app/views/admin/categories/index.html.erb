@@ -25,8 +25,8 @@
           				<td><%= category.title %></td>
           				<td><%= category.description %></td>
           				<td>0</td>
-          				<td class="a"><%= link_to "EDIT", "#", class: 'edit' %></td>
-          				<td class="a"><%= link_to "REMOVE", "#", class: 'remove' %></td>
+          				<td class="a"><%= link_to "EDIT", "categories/#{category.id}/edit", class: 'edit' %></td>
+          				<td class="a"><%= link_to "REMOVE", "categories/#{category.id}/destroy" ,{method: "delete"}, class: 'remove' %></td>
         			</tr>
       			</tbody>
       			<% end %>

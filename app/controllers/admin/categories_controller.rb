@@ -22,6 +22,28 @@ class Admin::CategoriesController < ApplicationController
 		end	
 	end
 
+	def edit
+		@category = Category.find_by(id: params[:id])		
+	end
+
+	def update
+		@category = Category.find_by(id: params[:id])
+		@category.assign_attributes(
+			title: params[:title],
+			description: params[:description]
+		)
+		if @category.save
+			flash[:notice] = "Edit is successfully."
+			redirect_to admin_categories_path
+		else
+			render "edit"
+		end
+	end
+
+	def destroy
+		redirect_to admin_categories_path
+	end
+
 	private
 		def admin_user
 			redirect_to(root_path) unless current_user.admin?
