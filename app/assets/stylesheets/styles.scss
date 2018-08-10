@@ -142,8 +142,8 @@ footer {
 .edit {
 	padding: 0.3em 1em;
 	text-decoration: none;
-	color: orange;
-	border: 2px solid orange;
+	color: #83cbff ;
+	border: 2px solid #83cbff;
 	border-radius: 3px;
 	transition: .4s;
 }
@@ -159,7 +159,7 @@ footer {
 
 .edit:hover {
 	text-decoration: none;
-	color: orange;
+	color: #83cbff;
 }
 
 .remove:hover {
@@ -168,18 +168,23 @@ footer {
 }
 
 .addCategory {
-	padding: 0.3em 1em;
 	text-decoration: none;
 	color: white;
-	background-color: green;
-	border: 2px solid green;
-	border-radius: 3px;
-	transition: .4s;
 }
 
 .addCategory:hover {
 	text-decoration: none;
-	color: white;
+	color: lightgray;
 }
 
+.cateTitle {
+	margin-top: 30px;
+}
 
+.cateDesc {
+	margin-bottom: 30px;
+}
+
+.choice {
+	margin-top: 5px;
+}

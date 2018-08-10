@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="card">
+  		<div class="card-header">
+  			<div class="row">
+  				<div class="col-sm-6">Admin | <%= @category.title %> - Words</div>
+  				<div class="col-sm-6 text-right">
+  					<%= link_to "ADD WORD", new_admin_category_word_path, class: 'addCategory' %>
+  				</div>
+  			</div>
+      </div>
+        <div class="row">
+          <div class="col-sm-1"></div>
+  				<div class="col-md-3">
+  					<h4 class="cateTitle"><%= @category.title %></h4>
+  					<p class="cateDesc"><%= @category.description %></p>
+  				</div>
+  			</div>
+  		
+
+ 			<div class="table-responsive">
+    			<table class="table">
+      			<thead>
+	       			<tr>
+	          			<th>Words</th><th>Answer</th><th>Action</th><th></th>
+	        		</tr>
+      			</thead>
+      			<% @words.each do |word| %>
+      			<tbody>
+
+        			<tr>
+
+          				<td><%= word.content %></td>
+          				<td><%= word.content %></td>
+          				<td class="a"><%= link_to "EDIT", "#", class: 'edit' %></td>
+          				<td class="a"><%= link_to "REMOVE", "#" , method: "delete", class: 'remove' %></td>
+        			</tr>
+      			</tbody>
+      			<% end %>
+    			</table>
+  			</div>
+	</div>
+</div>

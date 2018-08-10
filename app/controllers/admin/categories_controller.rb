@@ -41,7 +41,11 @@ class Admin::CategoriesController < ApplicationController
 	end
 
 	def destroy
-		redirect_to admin_categories_path
+		@category = Category.find_by(id: params[:id]).destroy
+		if @category.destroy
+			flash[:notice] = "Removing is successfully."
+			redirect_to admin_categories_path
+		end
 	end
 
 	private
