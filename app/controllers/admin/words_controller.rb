@@ -6,6 +6,7 @@ class Admin::WordsController < ApplicationController
 
 	def new
 		@word = Word.new
+		3.times { @word.word_answers.build }
 	end
 
 	def create
@@ -13,12 +14,16 @@ class Admin::WordsController < ApplicationController
 		@word = @category.words.new(
 			content: params[:content]
 			)
-		abort
-		@word_answer = @word.word_answers.new(
-			content: params[:answer]
-			)
+
+		params[:word_answers].each do |word_answer|
+			@word.word_answers.build(content: word_answer[:content])
+		end
+		# abort
+		#@word_answer = @word.word_answers.new(
+		#	content: params[:answer]
+		#	)
 		
-		if @word.save && @word_answer.save
+		if @word.save
 			flash[:notice] = "Inserting is succeesfully."
 			redirect_to admin_category_words_path
 		else
