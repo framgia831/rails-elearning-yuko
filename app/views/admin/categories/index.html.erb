@@ -25,7 +25,7 @@
           				<td><%= link_to category.title, admin_category_words_path(category), class: 'category' %></td>
           				<td><%= category.description %></td>
           				<td>0</td>
-          				<td class="a"><%= link_to "EDIT", "categories/#{category.id}/edit", class: 'edit' %></td>
+          				<td class="a"><%= link_to "EDIT", edit_admin_category_path(category), class: 'edit' %></td>
           				<td class="a"><%= link_to "REMOVE", admin_category_path(category) , method: "delete", class: 'remove' %></td>
         			</tr>
       			</tbody>

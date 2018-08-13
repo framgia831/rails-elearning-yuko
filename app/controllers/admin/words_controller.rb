@@ -5,14 +5,15 @@ class Admin::WordsController < ApplicationController
 	end
 
 	def new
-		@word = Word.new
+		@category = Category.find_by(id: params[:category_id])
+		@word = @category.words.build
+		3.times { @word.word_answers.build }
 	end
 
 	def create
-		@category = Category.find(params[:category_id])
-		@word = @category.words.new(
-			content: params[:content]
-			)
+		@category = Category.find_by(id: params[:category_id])
+		@word = @category.words.build(word_params)
+	
 		if @word.save
 			flash[:notice] = "Inserting is succeesfully."
 			redirect_to admin_category_words_path
@@ -21,4 +22,13 @@ class Admin::WordsController < ApplicationController
 		end
 		
 	end
+
+
+	private
+
+	def word_params
+		params.require(:word).permit(:content, word_answers_attributes: [:content, :correct])
+	end
+
+
 end
