@@ -23,11 +23,37 @@ class Admin::WordsController < ApplicationController
 		
 	end
 
+	def edit
+		@category = Category.find_by(id: params[:category_id])
+		@word = Word.find_by(id: params[:id])
+	end
+
+	def update
+		@category = Category.find_by(id: params[:category_id])
+		@word = Word.find_by(id: params[:id])
+		@word.assign_attributes(word_params)
+
+		if @word.save
+			flash[:notice] = "Edit is successfully."
+			redirect_to admin_category_words_path
+		else
+			render "edit"
+		end
+	end
+
+	def destroy
+		@word = Word.find_by(id: params[:id]).destroy
+		if @word.destroy
+			flash[:notice] = "Removing is successfully."
+			redirect_to admin_category_words_path
+		end
+	end
+
 
 	private
 
 	def word_params
-		params.require(:word).permit(:content, word_answers_attributes: [:content, :correct])
+		params.require(:word).permit(:content, word_answers_attributes: [:id, :content, :correct])
 	end
 
 

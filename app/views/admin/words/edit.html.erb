@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="bigBox">
+		<center><h3>Edit Word</h3></center>
+
+			<% @word.errors.full_messages.each do |message| %>
+				<div class="alert alert-danger">
+					<%= message %>
+				</div>
+			<% end %>
+			
+			<%= form_for([:admin, @category, @word]) do |f| %>
+				<div class="form-group">
+					<h5>WORD</h5>
+						<%= f.text_field :content, class: 'form-control' %>
+				</div>
+
+				<h5>CHOICES</h5>
+					<%= f.fields_for :word_answers do |a| %>
+						<%= a.text_field :content, class: 'form-control choice' %>
+						<%= a.check_box :correct %><span class="correct">correct</span>	
+				<% end %>
+
+				<div class="form-group">
+					<%= f.submit "SAVE WORD", class: 'btn btn-primary form-control bo' %>
+				</div>			
+			<% end %>
+	</div>
+</div>
