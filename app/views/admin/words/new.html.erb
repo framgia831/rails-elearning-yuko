@@ -7,24 +7,22 @@
 					<%= message %>
 				</div>
 			<% end %>
-
-			<%= form_tag(admin_category_words_path) do %>
+			
+			<%= form_for([:admin, @category, @word]) do |f| %>
 				<div class="form-group">
-					<p>WORD</p>
-						<%= text_field_tag :content, nil, class: 'form-control' %>
-				</div>
-					<p>CHOICES</p>
-					<% @word.word_answers.each do |word_answer| %>
-						<%= fields_for 'word_answers[]', word_answer do |a| %>
-							<%= a.text_field :content, class: 'form-control choice' %>
-							<%= a.check_box :correct %><span class="correct">correct</span>
-						<% end %>
-					<% end %>
-				
-				<div class="form-group">
-					<%= submit_tag "SAVE WORD", class: 'btn btn-primary form-control bo' %>
+					<h5>WORD</h5>
+						<%= f.text_field :content, class: 'form-control' %>
 				</div>
 
-		<% end %>
+				<h5>CHOICES</h5>
+					<%= f.fields_for :word_answers do |a| %>
+						<%= a.text_field :content, class: 'form-control choice' %>
+						<%= a.check_box :correct %><span class="correct">correct</span>	
+				<% end %>
+
+				<div class="form-group">
+					<%= f.submit "SAVE WORD", class: 'btn btn-primary form-control bo' %>
+				</div>			
+			<% end %>
 	</div>
 </div>
