@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :require_login, only: [:index]
   def index
   	@users = User.all
   end
@@ -72,6 +73,12 @@ class UsersController < ApplicationController
 
 	end
 
-
+	private
+		def require_login
+			unless logged_in?
+			flash[:notice] = "Please log in"
+			redirect_to(root_path) 
+			end
+		end
 
 end
