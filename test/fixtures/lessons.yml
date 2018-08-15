@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: one
+  category: one
+  wordAnswer: one
+  user: one
+
+two:
+  word: two
+  category: two
+  wordAnswer: two
+  user: two

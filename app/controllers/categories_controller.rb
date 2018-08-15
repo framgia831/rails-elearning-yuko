@@ -13,13 +13,12 @@ class CategoriesController < ApplicationController
 			title: params[title],
 			discription: params[disc]
 			)
-		if @category.save
-			flash[:notice] = "Creating category is successfully."
-			redirect_to "#"
-		else
-			render "#"
-		end
-		
+			if @category.save
+				flash[:notice] = "Creating category is successfully."
+				redirect_to "#"
+			else
+				render "#"
+			end
 	end
 	
 	private
@@ -30,4 +29,3 @@ class CategoriesController < ApplicationController
 			end
 		end
 end
-

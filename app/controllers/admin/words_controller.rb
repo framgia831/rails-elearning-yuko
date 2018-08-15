@@ -1,7 +1,7 @@
 class Admin::WordsController < ApplicationController
 	def index
 		@category = Category.find_by(id: params[:category_id])
-		@words = Word.all
+		@words = @category.words.all
 	end
 
 	def new
@@ -18,7 +18,7 @@ class Admin::WordsController < ApplicationController
 			flash[:notice] = "Inserting is succeesfully."
 			redirect_to admin_category_words_path
 		else
-			render("new")
+			render "new"
 		end
 		
 	end
