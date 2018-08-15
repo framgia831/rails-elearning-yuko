@@ -9,10 +9,15 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  resources :lessons 
+
   namespace :admin do
   	resources :categories do
       resources :words
     end
   end
 
+  resources :lessons do
+    resources :lesson_words
+  end
 end
