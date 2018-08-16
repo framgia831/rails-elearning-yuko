@@ -1,4 +1,7 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 .navbar{
 	background-color: #59bfe0;
 	height: 60px;
@@ -227,9 +230,25 @@ footer {
 .lessonBox {
 	background-color: #eee;
 	margin: 15px 25%;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	width: 50%;
 }
 
 .title {
 	margin: 30px 25%
+}
+
+.btn2 {
+	width: 60%;
+	margin-top: 10px; 
+}
+
+.box2 {
+	width: 50%;
+	margin: 30px 25%;
+}
+
+.row2 {
+	margin-top: 10px;
 }
