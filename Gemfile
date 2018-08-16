@@ -30,7 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker', '1.7.3'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'font-awesome-sass', '~> 5.2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

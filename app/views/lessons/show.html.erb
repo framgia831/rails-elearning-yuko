@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="box2">
+		<div class="row">
+			<div class="col-sm-6">
+				<h3><%= @lesson.category.title %></h3>
+			</div>
+			<div class="col-sm-6 text-right">
+				<h5>Result <%= @true.count %>/ <%= @count.count %></h5>
+			</div>
+		</div>
+		<div class="row row2">
+			<table class="table table-striped">
+				<thead class="thead-light">
+					<th>Word</th>
+					<th>Answer</th>
+					<th>Correct Answer</th>
+					<th>Result</th>
+				</thead>			
+				<% @lesson.lesson_words.each do |lesson_word| %>
+				<tbody>
+					<td>					
+						<center><%= lesson_word.word.content %></center>
+					</td>
+					<td>
+						<center><%= lesson_word.word_answer.content %></center>
+					</td>
+					<td>
+						<center><%= lesson_word.word.content %></center>
+					</td>				
+					<td>	
+						<center>
+						<% lesson_word.word_answer.correct %>
+						<% if lesson_word.word_answer.correct %>
+							<i class="far fa-check-circle"></i>
+						<% else %>
+							<i class="fas fa-times"></i>
+						<% end %>
+						</center>
+					</td>
+				</tbody>
+
+				<% end %>
+			</table>
+		</div>
+	</div>
+
+
+</div>

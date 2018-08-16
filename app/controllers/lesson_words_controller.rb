@@ -20,10 +20,14 @@ class LessonWordsController < ApplicationController
 			if @next_word.any?			
 				redirect_to new_lesson_lesson_word_path(@lesson)
 			else
-				abort
-				redirect_to "#"
+				redirect_to lesson_path(@lesson)
 			end
 
 		end
+	end
+
+	def show
+		@lesson = Lesson.find_by(id: params[:lesson_id])
+		@lesson_words = @lesson.lesson_words.all
 	end
 end

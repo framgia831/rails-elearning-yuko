@@ -2,8 +2,6 @@ class LessonsController < ApplicationController
 	def index
 	end
 
-
-
 	def create
 		@user = current_user
 		@category = Category.find_by(id: params[:category_id])
@@ -15,6 +13,12 @@ class LessonsController < ApplicationController
 			render "#"
 		end
 	end
-
+		
+	def show
+		@lesson = Lesson.find_by(id: params[:id])
+		@lesson_word = @lesson.lesson_words
+		@true = @lesson.word_answers.where(correct: "true")
+		@count = @lesson.words
+	end
 
 end

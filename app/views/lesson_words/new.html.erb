@@ -1,11 +1,11 @@
 <div class="container">
-	<h4 class="title"><%= @category.title %></h4>
+	<h3 class="title"><%= @category.title %></h3>
 	<div class="lessonBox">
 		<center>
-		<h5><%= @word.content %></h5>
+		<h4><%= @word.content %></h4>
 
 		<% @word.word_answers.each do |word_answer| %>
-			<%= button_to word_answer.content,lesson_lesson_words_path(@lesson), params: {word_id: @word.id,word_answer_id: word_answer.id} %>
+			<%= button_to word_answer.content,lesson_lesson_words_path(@lesson), params: {word_id: @word.id,word_answer_id: word_answer.id}, class: 'btn btn-default form-control btn2' %>
 		<% end %>
 		</center>
 	</div>
