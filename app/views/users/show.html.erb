@@ -10,6 +10,10 @@
 	    				<h4 class="card-text"><%= @user.name %></h4>
 						<p class="card-text"><%= @user.email %></p>	
 						<%= link_to "UPDATE PROFILE", edit_user_path %>
+						<section class="stats">
+							<%= render 'stats' %>
+						</section>
+						<%= render 'follow_form' if logged_in? %>
 					</div>
 				</center>
 			</div>

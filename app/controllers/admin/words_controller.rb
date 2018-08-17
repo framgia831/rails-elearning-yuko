@@ -2,6 +2,7 @@ class Admin::WordsController < ApplicationController
 	def index
 		@category = Category.find_by(id: params[:category_id])
 		@words = @category.words.all
+ 
 	end
 
 	def new
