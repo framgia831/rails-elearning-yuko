@@ -6,6 +6,7 @@
 	</div>
 		<% @users.each do |user| %>
 		<div class="row box">
+
 			<div class="col-4">
 				<span class="pic"><%= gravatar_for(user) %></span>
 			</div>
@@ -13,9 +14,8 @@
 				<b><%= link_to user.name, "users/#{user.id}" %></b>
 			</div>
 			<div class="col-4 followButton">
-				<%= link_to "FOLLOW", "#", class: 'follow pull-right' %>
-			</div>
+				<%= render 'relationships/follow_button',user: user %>
+			</div>			
 		</div>
-					
-		<% end %>
+		<% end %>		
 </div>
