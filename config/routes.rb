@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :lessons 
   resources :relationships
+  resources :dashboard
+  resources :words
 
   namespace :admin do
   	resources :categories do
