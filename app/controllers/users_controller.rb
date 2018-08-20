@@ -77,7 +77,7 @@ class UsersController < ApplicationController
 		@title = "Following"
 		@user = User.find(params[:id])
 		@users = @user.following
-		@text = "don't follow anyone."
+		@text = "#{@user.name} don't follow anyone."
 		render 'show_follow'
 	end
 
@@ -85,7 +85,7 @@ class UsersController < ApplicationController
 		@title = "Followers"
 		@user = User.find(params[:id])
 		@users = @user.followers
-		@text = "don't have any follower."
+		@text = "#{@user.name} don't have any follower."
 		render 'show_follow'
 	end
 
