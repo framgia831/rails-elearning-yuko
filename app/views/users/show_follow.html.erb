@@ -26,8 +26,7 @@
 					</center>
 				</div>
 			</div>
-	  	</div>
-	  
+	  	</div>	  
 	
 	  	<div class="follower">
 	  		<div class="card" style="width: 40rem">
@@ -35,16 +34,20 @@
 	  				<center><span class="info"><%= @title %></span></center>
 	  			</div>
 	  			<div class="card-body">
-			  		<% @users.each do |user| %>
-			  			<table class="table followTable">			
-							<tr>
-								<td><%= gravatar_for(user, 50) %></td>
-								<td><%= link_to user.name, user_path(user) %></td>
-								<% unless current_user == user %>
-									<td><%= render 'relationships/follow_button', user:user %></td>
-								<% end %>
-							</tr> 
-						</table>
+	  				<% if @users.any? %>			  		    				  		
+			  			<% @users.each do |user| %>			  					  				
+				  			<table class="table followTable">			
+								<tr>
+									<td><%= gravatar_for(user, 50) %></td>
+									<td><%= link_to user.name, user_path(user) %></td>
+									<% unless current_user == user %>
+										<td><%= render 'relationships/follow_button', user:user %></td>
+									<% end %>
+								</tr> 
+							</table>
+						<% end %>					
+					<% else %>					
+						<center><p><%= @text %></p></center>
 					<% end %>
 				</div>
 			</div>

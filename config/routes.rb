@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   post 'login' => 'users#login'
   post 'logout' => 'users#logout'
 
-  resources :users
   resources :categories
   resources :lessons 
   resources :relationships
