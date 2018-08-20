@@ -81,7 +81,7 @@ footer {
 	margin-left: 35%;
 }
 
-.card {
+.userInfo {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
@@ -251,4 +251,46 @@ footer {
 
 .row2 {
 	margin-top: 10px;
+}
+
+.unfollow {
+	display: inline-block;
+	padding: 0.3em 1em;
+	text-decoration: none;
+	color: lightgray;
+	border: 2px solid lightgray;
+	border-radius: 3px;
+	transition: .4s
+}
+
+.unfollow:hover {
+	text-decoration: none;
+	background: lightgray;
+	color: white;
+}
+
+.button {
+	margin-top:20px;
+}
+
+.float-left {
+	margin-right: 50px;
+}
+
+.col-12 {
+	.card{
+	margin-top: 0px;
+ }
+}
+
+.follower {
+	margin-top: 50px;
+}
+
+.followTable {
+	margin-top: 20px;
+}
+
+.back {
+	color: lightgray;
 }

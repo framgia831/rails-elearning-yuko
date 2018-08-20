@@ -1,11 +1,14 @@
+
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6">
 		<h3 class="list">Users</h3>
 		</div>
+
 	</div>
 		<% @users.each do |user| %>
 		<div class="row box">
+
 			<div class="col-4">
 				<span class="pic"><%= gravatar_for(user) %></span>
 			</div>
@@ -13,9 +16,11 @@
 				<b><%= link_to user.name, "users/#{user.id}" %></b>
 			</div>
 			<div class="col-4 followButton">
-				<%= link_to "FOLLOW", "#", class: 'follow pull-right' %>
-			</div>
+				<% unless current_user == user %>
+				<%= render 'relationships/follow_button',user: user %>
+				<% end %>
+			</div>			
 		</div>
-					
-		<% end %>
+		<% end %>		
+		<%= will_paginate @users %>
 </div>

@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   get 'login' => 'users#login_form'
   post 'login' => 'users#login'
   post 'logout' => 'users#logout'
-  resources :users
 
   resources :categories
-
   resources :lessons 
+  resources :relationships
 
   namespace :admin do
   	resources :categories do
@@ -20,4 +19,12 @@ Rails.application.routes.draw do
   resources :lessons do
     resources :lesson_words
   end
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+
 end

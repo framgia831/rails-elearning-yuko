@@ -26,8 +26,5 @@ class LessonWordsController < ApplicationController
 		end
 	end
 
-	def show
-		@lesson = Lesson.find_by(id: params[:lesson_id])
-		@lesson_words = @lesson.lesson_words.all
-	end
+
 end

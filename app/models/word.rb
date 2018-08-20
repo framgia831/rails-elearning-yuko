@@ -3,4 +3,9 @@ class Word < ApplicationRecord
   has_many :word_answers, dependent: :destroy
   accepts_nested_attributes_for :word_answers
   validates :content, {presence: true, uniqueness: true}
+
+  def correct_answer
+  	word_answers.find_by(correct: true)
+  end
+  
 end

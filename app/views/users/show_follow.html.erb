@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="col-12 clearfix">
+		<div class="float-left">
+		<div class="card userInfo" style="width: 20rem;">
+	  		<div class="card-header"><center><span class="info">USER INFORMATION</span></center></div>
+	  			<div class="card-body">
+	  				<center>
+	  					<div class="userImage">
+							<%= gravatar_for(@user, 150) %>
+						</div>
+						<div>
+		    				<h4 class="card-text"><%= @user.name %></h4>
+							<p class="card-text"><%= @user.email %></p>
+							<% if @user == current_user %>	
+								<%= link_to "UPDATE PROFILE", edit_user_path %>
+							<% end %>
+							<section class="stats">
+								<%= render 'stats' %>
+							</section>
+							<div class="button">
+								<% unless current_user == @user %>
+									<%= render 'relationships/follow_button', user:@user %>
+								<% end %>
+							</div>
+						</div>
+					</center>
+				</div>
+			</div>
+	  	</div>	  
+	
+	  	<div class="follower">
+	  		<div class="card" style="width: 40rem">
+	  			<div class="card-header">
+	  				<center><span class="info"><%= @title %></span></center>
+	  			</div>
+	  			<div class="card-body">
+	  				<% if @users.any? %>			  		    				  		
+			  			<% @users.each do |user| %>			  					  				
+				  			<table class="table followTable">			
+								<tr>
+									<td><%= gravatar_for(user, 50) %></td>
+									<td><%= link_to user.name, user_path(user) %></td>
+									<% unless current_user == user %>
+										<td><%= render 'relationships/follow_button', user:user %></td>
+									<% end %>
+								</tr> 
+							</table>
+						<% end %>					
+					<% else %>					
+						<center><p><%= @text %></p></center>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

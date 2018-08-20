@@ -28,12 +28,12 @@
       			<tbody>
         			<tr>
            				<td><%= word.content %></td>
-          				<td><%= word.content %></td>
+          				<td><%= word.correct_answer.content %></td>
           				<td class="a"><%= link_to "EDIT", edit_admin_category_word_path(@category, word), class: 'edit' %></td>
           				<td class="a"><%= link_to "REMOVE", admin_category_word_path(@category, word), method: "delete", class: 'remove' %></td>
         			</tr>
       			</tbody>
-      			<% end %>
+            <% end %>
     			</table>
   			</div>
 	</div>

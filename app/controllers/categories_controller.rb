@@ -8,18 +8,7 @@ class CategoriesController < ApplicationController
 		@category = Category.new
 	end
 
-	def create
-		@category = Category.new(
-			title: params[title],
-			discription: params[disc]
-			)
-			if @category.save
-				flash[:notice] = "Creating category is successfully."
-				redirect_to "#"
-			else
-				render "#"
-			end
-	end
+
 	
 	private
 		def require_login

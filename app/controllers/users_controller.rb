@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :require_login, only: [:index]
   def index
-  	@users = User.all
+  	@users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -71,6 +71,22 @@ class UsersController < ApplicationController
 			render "edit"
 		end
 
+	end
+
+	def following
+		@title = "Following"
+		@user = User.find(params[:id])
+		@users = @user.following
+		@text = "#{@user.name} don't follow anyone."
+		render 'show_follow'
+	end
+
+	def followers
+		@title = "Followers"
+		@user = User.find(params[:id])
+		@users = @user.followers
+		@text = "#{@user.name} don't have any follower."
+		render 'show_follow'
 	end
 
 	private
