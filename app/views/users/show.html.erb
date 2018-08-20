@@ -10,7 +10,7 @@
 	    				<h4 class="card-text"><%= @user.name %></h4>
 						<p class="card-text"><%= @user.email %></p>
 						<% if @user == current_user %>	
-						<%= link_to "UPDATE PROFILE", edit_user_path %>
+							<%= link_to "UPDATE PROFILE", edit_user_path %>
 						<% end %>
 						<section class="stats">
 							<%= render 'stats' %>

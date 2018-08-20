@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 		@category = Category.new
 	end
 
-
+	
 	
 	private
 		def require_login

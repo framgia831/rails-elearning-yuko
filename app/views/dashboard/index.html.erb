@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="col-12 clearfix">
+    <div class="float-left">
+      <div class="card userInfo" style="width: 15rem;">
+        <div class="card-header"><center><span class="info">USER INFORMATION</span></center></div>
+            <div class="card-body">
+              <center>
+                <div class="userImage">
+                <%= gravatar_for(current_user, 100) %>
+              </div>
+              <div>
+                <h4 class="card-text"><%= current_user.name %></h4>
+                <p class="card-text"><%= current_user.email %></p>
+                <%= link_to "UPDATE PROFILE", edit_user_path(current_user) %>                
+                  <div class="button">
+                    <% unless current_user %>
+                      <%= render 'relationships/follow_button', user:@user %>
+                    <% end %>
+                  </div>
+              </div>
+            </center>
+          </div>
+        </div>
+          <div class="card" style="width: 15rem;">
+            <div class="card-header"><center><span class="info">USER STATS</span></center></div>
+              <section class="stats">
+                <%= render 'users/stats' %>
+              </section>
+              <p><%= link_to "#{current_user.lesson_words.count} WORDS LEARNED" , words_path %></p>
+          </div> 
+    </div>
+  
+      <div class="follower">
+        <div class="card" style="width: 40rem">
+          <div class="card-header">
+            <center><span class="info">ACTIVITY FEED</span></center>
+          </div>
+          <div class="card-body">
+
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
