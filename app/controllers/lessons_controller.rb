@@ -8,9 +8,10 @@ class LessonsController < ApplicationController
 		@lesson = @user.lessons.build(category: @category)
 
 		if @lesson.save
+			@lesson.activities.create(user: @user)
 			redirect_to new_lesson_lesson_word_path(@lesson)
 		else
-			render "#"
+			render root_path
 		end
 	end
 		

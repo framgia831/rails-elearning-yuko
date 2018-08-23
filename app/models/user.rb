@@ -11,6 +11,7 @@ class User < ApplicationRecord
 	has_many :followers, through: :passive_relationships
 	has_many :lessons
 	has_many :lesson_words, through: :lessons
+	has_many :activities
 
 
 	validates :name, {presence: true}

@@ -51,6 +51,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
+		@activities = @user.activities.order("created_at DESC")
 	end
 
 	def edit
