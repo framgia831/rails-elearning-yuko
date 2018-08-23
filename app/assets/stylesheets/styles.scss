@@ -69,6 +69,10 @@
 
 footer {
 	background-color: lightgray;
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
 }
 
 .fixed-bottom {
@@ -354,8 +358,9 @@ footer {
 
 .activityRow {
 	margin-top: 20px;
+	margin-left: 20px;
 }
 
 .nameAct {
-	margin-right: 10px;
+	margin-left: 10px;
 }
