@@ -3,8 +3,6 @@ class LessonWordsController < ApplicationController
 		@lesson = Lesson.find(params[:lesson_id])
 		@category = @lesson.category
 		@word = (@category.words - @lesson.words).first
-
-
 	end
 
 	def create
@@ -20,6 +18,7 @@ class LessonWordsController < ApplicationController
 			if @next_word.any?			
 				redirect_to new_lesson_lesson_word_path(@lesson)
 			else
+				@lesson.activities.create(user: current_user)
 				redirect_to lesson_path(@lesson)
 			end
 

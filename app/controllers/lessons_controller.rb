@@ -7,10 +7,10 @@ class LessonsController < ApplicationController
 		@category = Category.find_by(id: params[:category_id])
 		@lesson = @user.lessons.build(category: @category)
 
-		if @lesson.save
+		if @lesson.save			
 			redirect_to new_lesson_lesson_word_path(@lesson)
 		else
-			render "#"
+			render root_path
 		end
 	end
 		

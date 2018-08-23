@@ -69,6 +69,10 @@
 
 footer {
 	background-color: lightgray;
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
 }
 
 .fixed-bottom {
@@ -293,4 +297,70 @@ footer {
 
 .back {
 	color: lightgray;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  margin-left: 8%;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 5px;
+    border-left: 1px solid lightgray;
+    color: lightgray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: gray;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.square_btn {
+	display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #67c5ff;
+    border: double 4px #67c5ff;
+    border-radius: 3px;
+    transition: .4s;
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+.square_btn:hover {
+    background: white;
+    text-decoration: none;
+}
+
+.update {
+	display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #67c5ff;
+    border: dashed 1px #67c5ff;
+    background: #f2fcff;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.update:hover {
+    background: #cbedff;
+    color: #FFF;
+}
+
+.activityRow {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.nameAct {
+	margin-left: 10px;
 }
