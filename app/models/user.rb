@@ -14,8 +14,8 @@ class User < ApplicationRecord
 	has_many :activities, dependent: :destroy
 
 
-	validates :name, {presence: true}
-	validates :email, {presence: true, uniqueness: true}
+	validates :name, {presence: true, length: {maximum: 30 }}
+	validates :email, {presence: true, uniqueness: true, length: {maximum: 50 }}
 	has_secure_password
 
 
