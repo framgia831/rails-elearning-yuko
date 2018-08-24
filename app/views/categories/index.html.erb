@@ -5,18 +5,22 @@
 
   <div class="row">
       <% @categories.each do |category| %>
-      <div class="col-sm-6">     
-        <section class="col-sm-12 cateDisplay">
-          <div class="detail_category">
-            <h4 class="letter"><%= category.title %></h4>
-            <p class="letter"><%= category.description %></p>
-          </div>
-          <div class="btn-wrapper text-right">
-          <%= button_to "LEARN", lessons_path(@category), params: {category_id: category.id}, class: 'btn btn-default btn1' %>
-          </div>
-        </section>   
-      </div>
+        <div class="col-sm-6">     
+          <section class="col-sm-12 cateDisplay">
+            <div class="detail_category">
+              <h4 class="letter"><%= category.title %></h4>
+              <p class="letter"><%= category.description %></p>
+            </div>
+            <div class="btn-wrapper text-right">
+            <% if lesson = current_user.lessons.find_by(category_id: category.id) %>
+              <%= link_to "SHOW RESULT", lesson_path(lesson), class: 'btn btn-default btn3' %>
+            <% else %>
+              <%= button_to "LEARN", lessons_path(@category), params: {category_id: category.id}, class: 'btn btn-default btn1' %>              
+            <% end %>
+            </div>
+          </section>   
+        </div>
       <% end %>
-
   </div>
+  <center><p class="backLink"><%= link_to "-BACK-", :back, class: 'back' %></p></center>
 </div>

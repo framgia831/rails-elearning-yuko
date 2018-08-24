@@ -2,14 +2,19 @@
 	<div class="row justify-content-end">
     	<div class="col-6">
     		<center>
-				<h3>WELCOME  TO  ELEARNING</h3>
-				<p><span class="blinking">＼PLEASE PUSH LOGIN／</span></p>
-				<br>
+    			<% if current_user %>
+    				<h4><span class="blinking">＼START LESSON／</span></h4>
+					<%= link_to "START LESSON", categories_path, class: 'cp_btn' %>
+    			<% else %>
+					<h3>WELCOME  TO  ELEARNING</h3>
+					<p><span class="blinking">＼PLEASE PUSH LOGIN／</span></p>
+					<br>
 
-				<%= link_to "LOGIN", login_path, class: "btn btn-primary po" %>
-					
-				<br><br><br>
-			<%= link_to "SIGNUP", signup_path, class: "btn btn-success po" %>
+					<%= link_to "LOGIN", login_path, class: "btn btn-primary po" %>
+						
+					<br><br><br>
+					<%= link_to "SIGNUP", signup_path, class: "btn btn-success po" %>
+				<% end %>
 			</center>
    		</div>
     	<div class="col-6">
@@ -26,3 +31,6 @@
 		</div>
     </div>
 </div>
+ <footer class="footer">
+                <center><p>©All rights reserved.</p></center>
+ </footer>

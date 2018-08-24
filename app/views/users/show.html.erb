@@ -37,15 +37,25 @@
 		            	<% @activities.each do |activity| %>
 		              		<div class="row activityRow">
 		                	<% if activity.action_type == "Relationship" %>
-			                  <%= gravatar_for(@user, 60) %>
-			                  <span class="nameAct"><%= link_to activity.user.name, dashboard_index_path %></span>
-			                  <span class="nameAct"> followed </span>
-			                  <span><%= link_to activity.action.followed.name, user_path(activity.action) %></span>
+			                  <%= gravatar_for(activity.action.followed, 60) %>
+			                    <div class="nameAct">
+				                  <span><%= link_to activity.user.name, dashboard_index_path %></span>
+				                  <span> followed </span>
+				                  <span><%= link_to activity.action.followed.name, user_path(activity.action.followed) %></span>
+				                  <p class="timestamp"> <%= time_ago_in_words(activity.created_at) %> ago.</p>
+                      			</div>
 		                	<% else %>
 			                  <%= gravatar_for(current_user, 60) %>
-			                  <span class="nameAct"><%= link_to activity.user.name, dashboard_index_path %></span>
-			                  <span class="nameAct"> learned </span>
-			                  <span><%= link_to activity.action.category.title, lesson_path(activity.action) %></span>
+			                  	<div class="nameAct">
+				                  <span><%= link_to activity.user.name, dashboard_index_path %></span>
+				                  <span> learned </span>
+				                  <span><%= activity.action.word_answers.where(correct:true).count %></span>
+			                      <span> of </span>
+			                      <span><%= activity.action.words.count %></span>
+			                      <span> in </span>
+				                  <span><%= link_to activity.action.category.title, lesson_path(activity.action) %></span>
+				                  <p class="timestamp"> <%= time_ago_in_words(activity.created_at) %> ago.</p>
+                      			</div>
 		                	<% end %>
 		             		</div>
 		            	<% end %>
