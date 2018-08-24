@@ -31,14 +31,13 @@
 
                     <% if current_user.admin %>
                         <li class="li">
-
-                            <%= link_to "EDIT ALL DATA", admin_categories_path, class: 'logout' %>
+                           <%= link_to "EDIT ALL DATA", admin_categories_path, class: 'logout' %>
                         </li>
                     <% end %>
 
                     <li class="li dropdown">
                             <%= gravatar_for(current_user, 30) %>
-                            <span class="userAct"><%= link_to current_user.name, users_path, class: 'logout' %></span>
+                            <span class="userAct"><%= link_to current_user.name, user_path(current_user), class: 'logout' %></span>
                     </li>
 
                     <li class="li">

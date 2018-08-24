@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :require_login, only: [:index]
+	before_action :require_login, only: [:index, :show, :edit]
   def index
   	@users = User.paginate(page: params[:page], per_page: 5)
   end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 		if @user && @user.authenticate(params[:password])
 			session[:user_id] = @user.id
 			flash[:notice] = "Login is successfully."
-			redirect_to root_path
+			redirect_to dashboard_index_path
 		else
 			@error_message = "Email or Password is wrong."
 			@email = params[:email]
