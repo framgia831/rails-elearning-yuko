@@ -299,9 +299,12 @@ footer {
 	color: lightgray;
 }
 
+.backLink {
+	margin-top: 30px;
+}
 .stats {
   overflow: auto;
-  margin-top: 0;
+  margin-top: 5px;
   margin-left: 8%;
   padding: 0;
   a {
@@ -363,4 +366,25 @@ footer {
 
 .nameAct {
 	margin-left: 10px;
+}
+
+.btn3 {
+	background-color: lightgray;
+	color: white;
+	width: 30%;
+}
+
+.btn3:hover {
+	color: gray;
+}
+
+.timestamp {
+	color: gray;
+	font-size: 8pt;
+	margin-left: 10px;
+}
+
+.bodyStats{
+	padding-top: 10px;
+	padding-bottom: 3px;
 }

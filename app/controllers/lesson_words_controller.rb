@@ -1,4 +1,5 @@
 class LessonWordsController < ApplicationController
+	before_action :require_login
 	def new
 		@lesson = Lesson.find(params[:lesson_id])
 		@category = @lesson.category
@@ -24,6 +25,12 @@ class LessonWordsController < ApplicationController
 
 		end
 	end
-
+	private
+		def require_login
+			unless logged_in?
+			flash[:notice] = "Please log in"
+			redirect_to(root_path) 
+			end
+		end
 
 end
