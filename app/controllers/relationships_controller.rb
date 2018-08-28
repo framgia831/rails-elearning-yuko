@@ -1,7 +1,7 @@
 class RelationshipsController < ApplicationController
 	before_action :require_login
 	def create
-		@user = User.find(params[:followed_id])
+		@user = User.find(params[:relationship][:followed_id])
 		current_user.follow(@user)
 		relationship = current_user.active_relationships.find_by(followed: @user)
 		relationship.activities.create(user: current_user)
