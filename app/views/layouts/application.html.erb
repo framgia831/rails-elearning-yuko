@@ -11,7 +11,9 @@
     </head>
 
     <body>
+
          <nav class="navbar navbar-expand-md">
+
             <div class="container">
                 <div class='navbar-brand'>
                     <%= link_to "LOGO", root_path, class: 'logout' %>
@@ -35,17 +37,50 @@
                             </li>
                         <% end %>
 
+                <%= link_to "LOGO", root_path, class: 'navbar-brand logout' %>
+
+                <ul class="navbar nav justify-content-end">
+                <% if current_user %>
+                    <li class="li">
+                        <%= link_to "DASHBOARD", dashboard_index_path, class: 'logout' %>
+                    </li>
+                    <li class="li">
+                        <%= link_to "CATEGORY", categories_path, class: 'logout' %>
+                    </li>
+
+                    <li class="li">
+                        <%= link_to "MEMBERS", users_path, class: 'logout' %>
+                    </li>
+
+
                         <li class="li dropdown">
                             <%= gravatar_for(current_user, 30) %>
                             <span class="userAct"><%= link_to current_user.name, user_path(current_user), class: 'logout' %></span>
                         </li>
                         <li class="li">
+
                             <%= link_to "Logout", logout_path , method:"post" , class: 'logout' %>
                         </li>
                     <% end %>
                     </ul>   
                 </div>            
             </div>
+
+                           <%= link_to "EDIT ALL DATA", admin_categories_path, class: 'logout' %>
+                        </li>
+                    <% end %>
+
+                    <li class="li dropdown">
+                            <%= gravatar_for(current_user, 30) %>
+                            <span class="userAct"><%= link_to current_user.name, user_path(current_user), class: 'logout' %></span>
+                    </li>
+
+                    <li class="li">
+                        <%= link_to "Logout", logout_path , method:"post" , class: 'logout' %>
+                    </li>
+                <% end %>
+                </ul>               
+        </div>
         </nav>
    
         <div class="container">
