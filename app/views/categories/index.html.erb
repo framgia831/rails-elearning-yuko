@@ -22,5 +22,10 @@
         </div>
       <% end %>
   </div>
+
+  <div class="row pagiNate">
+    <%= will_paginate @users %>
+  </div>
+
   <center><p class="backLink"><%= link_to "-BACK-", :back, class: 'back' %></p></center>
 </div>

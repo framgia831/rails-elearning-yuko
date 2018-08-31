@@ -1,27 +1,27 @@
 
 <div class="container">
+	<div class="row cateBox">
+		<h3>Users</h3>
+	</div>
 	<div class="row">
+		<% @users.each do |user| %>
 		<div class="col-sm-6">
-		<h3 class="list">Users</h3>
+			<section class="cateDisplay">
+				<span class="pic"><%= gravatar_for(user) %></span>
+				<b><%= link_to user.name, "users/#{user.id}" %></b>				
+				<% unless current_user == user %>
+					<span class="followB"><%= render 'relationships/follow_button',user: user %></span>
+				<% end %>				
+			</section>			
 		</div>
+		<% end %>
+	</div>		
+	<div class="row pagiNate">
+		<%= will_paginate @users %>
 
 	</div>
-		<% @users.each do |user| %>
-		<div class="row box">
-
-			<div class="col-4">
-				<span class="pic"><%= gravatar_for(user) %></span>
-			</div>
-			<div class="col-4 name">
-				<b><%= link_to user.name, "users/#{user.id}" %></b>
-			</div>
-			<div class="col-4 followButton">
-				<% unless current_user == user %>
-				<%= render 'relationships/follow_button',user: user %>
-				<% end %>
-			</div>			
-		</div>
-		<% end %>		
-		<%= will_paginate @users %>
 		<center><%= link_to "-BACK-", :back, class: 'back' %></center>
+
+
 </div>
+
